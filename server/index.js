@@ -15,6 +15,11 @@ import { register } from "./controllers/auth.js"
 import { createPost } from "./controllers/posts.js"
 import { verifyToken } from "./middleware/auth.js"
 
+// mock info
+// import User from "./models/User.js"
+// import Post from "./models/Post.js"
+// import { users, posts } from "./data/data.js"
+
 // Configurations
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -58,5 +63,9 @@ const PORT = process.env.PORT || 6001
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
         app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
+
+        // mock info
+        // User.insertMany(users)
+        // Post.insertMany(posts)
     })
     .catch((error) => console.log(`${error} did not connect`))
